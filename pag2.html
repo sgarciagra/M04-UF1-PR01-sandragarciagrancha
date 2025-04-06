@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Buscando a tu perro</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+
+<!-- Barra superior con logo a la izquierda y submenú a la derecha -->
+<div class="topbar">
+  <img src="Logo_buscandote.org.png" alt="Logo" class="logo-img">
+
+  <!-- Submenú de navegación -->
+  <nav class="submenu">
+      <ul class="submenu-list">
+          <li><a href="index.html">Inicio</a></li>
+      </ul>
+  </nav>
+
+  <!-- Icono de hamburguesa para el submenu -->
+  <div class="subhamburger" id="subhamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+</div>
+
+<!-- Enlace a tu nuevo subhamburguesa.js -->
+<script src="subhamburguesa.js" defer></script>
+
+
+
+<!-- HEADER2 -->
+<header class="header2">
+    <div>
+        <h1>Publica tu anuncio</h1>
+    </div>
+</header>
+
+<!-- CUERPO -->
+
+<!-- Sección vacía-->
+<section class="seccion0">  
+    <div class="contenedor">
+    </div>
+</section>
+
+<!-- Sección 1 del cuerpo (equivale a Sección 3 de index.html) -->
+<section class="seccion3">
+  <div class="texto-central">
+      <h2>LEE LAS INSTRUCCIONES Y PUBLICA TU ANUNCIO</h2>
+      <p>Es importante una foto de cuerpo entero</p>
+  </div>
+
+  <div class="contenedor">
+      <!-- Caja izquierda -->
+          <div class="texto-caja">
+              <h3>Datos importantes para publicar</h3>
+              <p>Para empezar, hay que mencionar características básicas del perro, como su nombre o algún indicador físico que le haga inconfundible: Por ejemplo "lleva un arnés de color naranja".</p>
+              <p>Por otro lado, es importante:</p>
+              <p>· La zona y la fecha que fue visto por última vez.</p>
+              <p>· Una buena foto de cuerpo entero.</p>
+              <p>· Dos teléfonos de contacto.</p>
+              <p>· Indicar si es asustadizo, advirtiendo de que no lo persigan.</p>
+              <p>· No mencionar la raza (si lo fuera).</p>
+              <p>· Nunca jamás incluir recompensas económicas.</p>
+          </div>
+      </div>
+
+<!-- Caja derecha con el formulario -->
+
+<div class="form-container">
+  <h1>Formulario para subir tu anuncio</h1>
+  <form id="formulario" action="#" method="post" enctype="multipart/form-data">
+      <div>
+          <label for="nombre">Tu nombre:</label>
+          <input type="text" id="nombre" name="nombre" required>
+      </div>
+      <div>
+          <label for="telefono">Tu teléfono:</label>
+          <input type="tel" id="telefono" name="telefono" required>
+      </div>
+      <div>
+          <label for="nombre_perro">El nombre de tu perro:</label>
+          <input type="text" id="nombre_perro" name="nombre_perro" required>
+      </div>
+      <div>
+          <label for="fecha_desaparicion">Fecha de desaparición:</label>
+          <input type="date" id="fecha_desaparicion" name="fecha_desaparicion" required>
+      </div>
+      <div>
+          <label for="municipio">Municipio:</label>
+          <input type="text" id="municipio" name="municipio" required>
+      </div>
+      <div>
+          <label for="provincia">Provincia:</label>
+          <input type="text" id="provincia" name="provincia" required>
+      </div>
+      <div>
+          <label for="detalles">Detalles:</label>
+          <textarea id="detalles" name="detalles" required></textarea>
+      </div>
+      <div>
+          <label for="foto">Adjuntar foto:</label>
+          <input type="file" id="foto" name="foto" accept="image/*">
+      </div>
+      <button type="submit">Enviar</button>
+  </form>
+
+  <!-- Mensaje de confirmación -->
+  <div id="mensajeConfirmacion" style="display: none; color: rgb(245, 101, 5);">
+      <p>¡Formulario enviado con éxito! Comprobaremos los datos y en breve nos pondremos en contacto para confirmar tu anuncio.</p>
+  </div>
+</div> <!-- Cierra el contenedor .form-container -->
+</section> <!-- Cierra la sección del formulario -->
+
+
+
+<script>
+  // Obtener el formulario y el mensaje de confirmación
+  const formulario = document.getElementById('formulario');
+  const mensajeConfirmacion = document.getElementById('mensajeConfirmacion');
+
+  // Agregar evento para cuando se envíe el formulario
+  formulario.addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevenir el comportamiento por defecto (recarga de página)
+      
+      // Mostrar el mensaje de confirmación
+      mensajeConfirmacion.style.display = 'block';
+
+      // Opcional: Resetear el formulario
+      formulario.reset();
+  });
+</script>
+
+
+
+<!-- Sección 2 del cuerpo (equivale a Sección 3 de index.html)-->
+<section class="seccion3">  
+  <div class="texto-central">
+    <h2>PERMANECE ATENTO A LAS PISTAS</h2>
+    <p>No desesperes y sé constante</p>
+  </div>
+    <div class="contenedor">
+      <!-- Caja izquierda -->
+      <div class="caja izquierda">
+        <div class="imagen-caja">
+          <img src="Foto_anuncio1.jpg" alt="Consejo 1">
+        </div>
+      </div>
+      <!-- Caja derecha -->
+      <div class="caja derecha">
+        <div class="imagen-caja">
+          <img src="Foto_anuncio2.jpg" alt="Consejo 2">
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Sección vacía-->
+<section class="seccion0">  
+    <div class="contenedor">
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-contenido">
+    <div class="columna">
+      <h3>Copyright</h3>
+      <p>2025@ Derechos reservados para buscandote.org.</p>
+    </div>
+    <div class="columna">
+      <h3>Contacto</h3>
+      <p><i class="fas fa-envelope"></i> info@buscandote.org</p>
+      <p><i class="fas fa-phone"></i> 650023229</p>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

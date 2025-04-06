@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips perros perdidos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Barra superior con logo a la izquierda y submenú a la derecha -->
+<div class="topbar">
+  <img src="Logo_buscandote.org.png" alt="Logo" class="logo-img">
+
+  <!-- Submenú de navegación -->
+  <nav class="submenu">
+      <ul class="submenu-list">
+          <li><a href="index.html">Inicio</a></li>
+      </ul>
+  </nav>
+
+  <!-- Icono de hamburguesa para el submenu -->
+  <div class="subhamburger" id="subhamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+  </div>
+</div>
+
+<!-- Enlace a tu nuevo subhamburguesa.js -->
+<script src="subhamburguesa.js" defer></script>
+
+<!-- HEADER2 -->
+<header class="header2">
+    <div>
+        <h1>Consejos</h1>
+    </div>
+</header>
+
+<!-- CUERPO -->
+
+<!-- Sección vacía-->
+<section class="seccion0">  
+    <div class="contenedor">
+    </div>
+</section>
+
+<!-- Sección 1 del cuerpo (equivale a Sección 3 de index.html)-->
+<section class="seccion3" id="tips">
+    <div class="texto-central">
+      <h2>TIPS  ÚTILES PARA PREVENIR</h2>
+      <p>Las malas decisiones tienen consecuencias. Previene</p>
+    </div>
+  
+    <div class="contenedor">
+      <!-- Caja izquierda -->
+      <div class="caja izquierda">
+        <div class="texto-caja">
+          <h3>Utiliza un buen arnés</h3>
+          <p>Si no hay un vínculo muy trabajado, ¡no lo dejes suelto!.</p>
+          <p>Utiliza un buen arnés de 3 puntos, especialmente diseñados para los más escapistas.</p>
+          <p>Con los collares y arneses normales no tienes el control total, se lo pueden quitar fácilmente y salir corriendo.</p>
+        </div>
+        <div class="imagen-caja">
+          <img src="Consejo1.jpg" alt="Consejo 1">
+        </div>
+      </div>
+  
+      <!-- Caja derecha -->
+      <div class="caja derecha">
+        <div class="imagen-caja">
+          <img src="Escapes.jpg" alt="Consejo 2">
+        </div>
+        <div class="imagen-caja">
+          <img src="arneses3p.jpg" alt="Consejo 2">
+        </div>
+        </div>
+      </div>
+</section>
+
+<!-- Sección 2 del cuerpo (equivale a seccion 4 del style)-->
+<section class="seccion4">
+  <div class="contenedor"> 
+    <div class="texto-central">
+      <h2>ESCUCHA ESTO</h2>
+      <p>5 consejos para que no se pierda</p>
+    </div>
+      <figure>
+        <iframe 
+          width="560" 
+          height="315" 
+          src="https://www.youtube.com/embed/ZMQHizE6yZg" 
+          title="5 consejos" 
+          style="border: none;" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+          allowfullscreen>
+        </iframe>
+        <figcaption>Video realizado por 4EverDogs en YouTube</figcaption>
+      </figure>
+  </div> 
+  </section>
+  
+<!-- Sección de FAQs -->
+<section class="faqs">
+    <h2>PREGUNTAS FRECUENTES</h2>
+    <div class="faq-item">
+        <button class="faq-question">¿Qué puedo hacer yo para reducir el riesgo de perderlo?</button>
+        <div class="faq-answer">
+            <p>No llevarlo suelto. Y, si lo sueltas, hazlo solo en parques de perros vallados o en lugares alejados de posibles peligros pero con un vínculo muy trabajado. Asegúrate de que acude a tu llamada.</p>
+        </div>
+    </div>
+    <div class="faq-item">
+        <button class="faq-question">¿Qué herramientas son las más útiles para evitar perderlos?</button>
+        <div class="faq-answer">
+            <p>Los arneses anti-escape de 3 puntos y las correas multiposición. Sobretodo en caso de perros muy miedosos. Aquí tienes ejemplos:</p> 
+            <p>Arnés antiescape: <a href="https://elgalgoazul.com/comprar/arnes-antiescape-xy-amarillo/" target="_blank">Ver producto</a></p>
+            <p>Correa multiposición: <a href="https://piggydexshop.com/products/correa-multiposicion-impermeable-lila" target="_blank">Ver producto</a></p>
+        </div>
+    </div>
+</section>
+
+<script>
+    document.querySelectorAll('.faq-question').forEach((button) => {
+        button.addEventListener('click', () => {
+            const answer = button.nextElementSibling;
+            // Alternar la visibilidad de la respuesta
+            answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+        });
+    });
+</script>
+
+<section class="imagen-full">
+    <img src="Lostdog.jpg" alt="Imagen de ancho completo">
+</section>
+
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-contenido">
+      <div class="columna">
+        <h3>Copyright</h3>
+        <p>2025@ Derechos reservados para buscandote.org.</p>
+      </div>
+      <div class="columna">
+        <h3>Contacto</h3>
+        <p><i class="fas fa-envelope"></i> info@buscandote.org</p>
+        <p><i class="fas fa-phone"></i> 650023229</p>
+      </div>
+    </div>
+  </footer>
+  
+
+</body>
+</html>

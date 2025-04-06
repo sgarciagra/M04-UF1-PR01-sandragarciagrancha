@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Foros de búsquedas</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+
+<!-- Barra superior con logo a la izquierda y submenú a la derecha -->
+<div class="topbar">
+    <img src="Logo_buscandote.org.png" alt="Logo" class="logo-img">
+  
+    <!-- Submenú de navegación -->
+    <nav class="submenu">
+        <ul class="submenu-list">
+            <li><a href="index.html">Inicio</a></li>
+        </ul>
+    </nav>
+  
+    <!-- Icono de hamburguesa para el submenu -->
+    <div class="subhamburger" id="subhamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+  </div>
+  
+  <!-- Enlace a tu nuevo subhamburguesa.js -->
+  <script src="subhamburguesa.js" defer></script>
+
+<!-- HEADER2 -->
+<header class="header2">
+    <div>
+        <h1>Foros de búsqueda</h1>
+    </div>
+</header>
+
+<!-- CUERPO -->
+
+<!-- Sección vacía-->
+<section class="seccion0">  
+    <div class="contenedor">
+    </div>
+</section>
+
+
+<!-- Sección 2 del cuerpo (equivale a sección 4 del estilo) -->
+<section class="seccion4">
+    <div class="texto-central">
+        <h2>CONSULTA LOS GRUPOS DE BÚSQUEDA</h2>
+        <p>Consulta el listado de foros por provincia.</p>
+    </div>
+</section>
+
+    <div class="contenedor contenedor-local">
+        <!-- Filtros (Columna izquierda) -->
+        <div class="columna-izquierda-local">
+            <div id="filtros">
+                <p>Escoger provincia:</p>
+                <label><input type="checkbox" id="filtroBarcelona" value="barcelona"> Barcelona</label><br>
+                <label><input type="checkbox" id="filtroTarragona" value="tarragona"> Tarragona</label><br>
+                <label><input type="checkbox" id="filtroLleida" value="lleida"> Lleida</label><br>
+                <label><input type="checkbox" id="filtroGirona" value="girona"> Girona</label>
+            </div>
+            <!-- Botón para aplicar filtro -->
+            <button id="btnFiltrar">Filtrar</button>
+        </div>
+
+        <!-- Caja de foros (Columna derecha) -->
+        <div class="columna-derecha-local">
+            <div id="galeria2">
+                <div class="foro" data-provincia="Barcelona">
+                    <h3>Foro 1: Grupos de búsqueda perros perdidos en Barcelona</h3>
+                    <p>Descripción del foro: Hemos creado un grupo de voluntarios para encontrar pistas de perros perdidos en toda la provincia de Barcelona. ¿Te apuntas?</p>
+                </div>
+                <div class="foro" data-provincia="Tarragona">
+                    <h3>Foro 2: Grupos de búsqueda perros perdidos en Tarragona</h3>
+                    <p>Descripción del foro: Tenemos muchos perros perdidos por Tarragona, necesitamos voluntarios para hacer batidas de búsquedas.</p>
+                </div>
+                <div class="foro" data-provincia="Lleida">
+                    <h3>Foro 3: Grupos de búsqueda perros perdidos en Lleida</h3>
+                    <p>Descripción del foro: Grupos de batidas de búsqueda por la provincia de Lleida.</p>
+                </div>
+                <div class="foro" data-provincia="Girona">
+                    <h3>Foro 4: Grupos de búsqueda perros perdidos en Girona</h3>
+                    <p>Descripción del foro: Perros perdidos en Girona provincia, nos organizamos en grupo para salir a buscar pistas de los perros perdidos en los últimos 6 meses.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Sección vacía-->
+<section class="seccion0">  
+    <div class="contenedor">
+    </div>
+</section>
+
+
+<script>
+    // Primero capturamos los filtros, los foros y el botón de filtrar
+    const btnFiltrar = document.getElementById('btnFiltrar');
+    const foros = document.querySelectorAll('#galeria2 .foro');
+
+    // Función para actualizar los foros visibles según los filtros
+    const actualizarFiltro = () => {
+        // Crear un array de provincias seleccionadas
+        const provinciasSeleccionadas = [];
+
+        // Verificamos si las casillas de provincia están marcadas
+        if (document.getElementById("filtroBarcelona").checked) {
+            provinciasSeleccionadas.push("Barcelona");
+        }
+        if (document.getElementById("filtroTarragona").checked) {
+            provinciasSeleccionadas.push("Tarragona");
+        }
+        if (document.getElementById("filtroLleida").checked) {
+            provinciasSeleccionadas.push("Lleida");
+        }
+        if (document.getElementById("filtroGirona").checked) {
+            provinciasSeleccionadas.push("Girona");
+        }
+
+        // Depuración: mostrar las provincias seleccionadas
+        console.log("Provincias seleccionadas:", provinciasSeleccionadas);
+
+        // Si no hay provincias seleccionadas, mostramos todos los foros
+        if (provinciasSeleccionadas.length === 0) {
+            foros.forEach(foro => foro.style.display = 'block');  // Mostrar todos los foros
+            return; // Salimos de la función sin aplicar más filtros
+        }
+
+        // Filtrar los foros
+        foros.forEach(foro => {
+            const provinciaDelForo = foro.dataset.provincia;
+            // Verificamos si el foro coincide con alguna provincia seleccionada
+            const coincideProvincia = provinciasSeleccionadas.includes(provinciaDelForo);
+
+            // Mostrar u ocultar los foros según si coinciden con los filtros
+            if (coincideProvincia) {
+                foro.style.display = 'block';  // Mostrar el foro si coincide
+            } else {
+                foro.style.display = 'none';   // Ocultar el foro si no coincide
+            }
+        });
+    };
+
+    // Añadimos el evento click al botón para aplicar los filtros
+    btnFiltrar.addEventListener('click', actualizarFiltro);
+
+    // También podemos agregar la funcionalidad para que actualice los resultados de inmediato si cambiamos algún filtro
+    const checkboxes = document.querySelectorAll('#filtros input[type="checkbox"]');
+    checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', actualizarFiltro);
+    });
+</script>
+
+
+
+
+<section class="imagen-full">
+    <img src="Imagen_full.jpg" alt="Imagen de ancho completo">
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-contenido">
+      <div class="columna">
+        <h3>Copyright</h3>
+        <p>2025@ Derechos reservados para buscandote.org.</p>
+      </div>
+      <div class="columna">
+        <h3>Contacto</h3>
+        <p><i class="fas fa-envelope"></i> info@buscandote.org</p>
+        <p><i class="fas fa-phone"></i> 650023229</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

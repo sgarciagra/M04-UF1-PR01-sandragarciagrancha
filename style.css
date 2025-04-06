@@ -1,0 +1,957 @@
+                                                                                                                                                
+/* Estilos generales */
+body {
+    font-family: 'Comic Neue', cursive;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* Centrado general */
+}
+
+/* Barra superior */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #FF5722; /* Deep orange */
+    padding: 10px 20px;
+}
+
+.topbar .logo-img {
+    width: 40px;
+}
+
+/* Estilo para el texto junto al logo */
+.topbar .logo-container {
+    display: flex;
+    align-items: center;
+}
+
+.topbar .logo-text {
+    font-size: 1.0em; /* Ajusta el tamaño del texto */
+    color: white;
+    margin-left: 10px; /* Espacio entre el logo y el texto */
+    font-family: 'Oswald', sans-serif; /* O cualquier fuente que prefieras */
+}
+
+/*Estilos del menú pagina principal*/
+
+.topbar nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.topbar nav ul li {
+    margin-left: 20px;
+}
+
+.topbar nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 1.2em;
+}
+
+button:hover {
+    background-color: #312c2a;
+}
+
+/* Cambia el color de fondo cuando el botón tiene el foco */
+button:focus {
+    background-color: #d3826a;
+    outline: none; /* Elimina el contorno predeterminado para personalizar el enfoque */
+}
+
+/* Estilos del botón de hamburguesa (solo en pantallas pequeñas) */
+.hamburger {
+    display: none; /* Ocultamos el icono de hamburguesa por defecto */
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+}
+
+.hamburger div {
+    background-color: white;
+    height: 4px;
+    width: 100%;
+    border-radius: 10px;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .topbar nav ul {
+        display: none; /* Ocultamos el menú por defecto */
+        flex-direction: column;
+        width: 100%;
+        background-color: #FF5722;
+        position: absolute;
+        top: 40px; /* Asegúrate de que el menú se despliegue debajo de la barra superior */
+        left: 0;
+        padding:10px;
+        box-sizing: border-box;
+        z-index: 1000;
+    }
+
+    .topbar nav ul li {
+        margin-left: 0;
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .hamburger {
+        display: flex; /* Mostramos el ícono de hamburguesa */
+    }
+
+    .topbar nav.active ul {
+        display: flex; /* Mostramos el menú cuando está activo */
+    }
+
+    /* Botón de "hamburguesa" se agranda cuando está activo */
+    .topbar nav.active .hamburger div {
+        background-color: #FF5722;
+    }
+}
+
+/* Estilo del submenu (o menu de paginas) */
+.submenu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .submenu-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+  }
+  
+  /* Hamburguesa oculta en escritorio */
+  .subhamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  
+  .subhamburger span {
+    width: 25px;
+    height: 3px;
+    background-color: #ffffff;
+    margin: 2px 0;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .submenu {
+      display: none;
+      flex-direction: column;
+      background-color: white;
+      width: 100%;
+      position: absolute;
+      top: 0px; /* Altura de tu barra superior */
+      left: 0;
+      text-align: center;
+    }
+  
+    .submenu.active {
+      display: flex;
+    }
+  
+    .submenu-list {
+      flex-direction: column;
+      padding: 0;
+    }
+  
+    .submenu-list li {
+      margin: 15px 0;
+    }
+  
+    .subhamburger {
+      display: flex;
+    }
+  }
+  
+
+
+/* HEADER */
+header {
+    background-image: 
+      linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), /* Gradiente oscuro suave */
+      url('Perro_perdido.jpg'); /* Imagen de fondo */
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    opacity: 0;
+    animation: fadeInHeader 2s ease forwards;
+}
+
+/* Animación para que el header aparezca lentamente */
+@keyframes fadeInHeader {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+header h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 5vw; /* Tamaño base responsivo */
+    margin: 0;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    letter-spacing: 0.1em;
+    animation: expandOnce 2s ease forwards;
+    animation-delay: 2s; /* Espera a que termine el fadeIn */
+}
+
+/* Ajuste para pantallas más pequeñas (móviles) */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 6vw; /* Tamaño ligeramente mayor para móviles */
+    }
+}
+
+/* Ajuste para pantallas grandes (pantallas de escritorio) */
+@media (min-width: 1200px) {
+    header h1 {
+        font-size: 4vw; /* Tamaño más pequeño en pantallas grandes */
+    }
+}
+
+
+
+
+/* Animación para expandir y volver al tamaño normal solo una vez */
+@keyframes expandOnce {
+    0% {
+        transform: scale(1);
+        letter-spacing: 0.1em;
+    }
+    50% {
+        transform: scale(1.1);
+        letter-spacing: 0.2em;
+    }
+    100% {
+        transform: scale(1);
+        letter-spacing: 0.1em;
+    }
+}
+
+/* HEADER2 */
+.header2 {
+    background-image: url('Encabezado2.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 60vh;
+    min-height: 600px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    opacity: 0;
+}
+
+/* Sección 0 */
+.seccion0 {
+    padding: 50px 20px;
+    background-color: #ffffff;
+}
+
+/* Sección 1 */
+.seccion1 {
+    padding: 50px 20px;
+    background-color: #fafafa;
+}
+
+.seccion1 .texto-central h2 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 26px;
+    color: #333;
+}
+
+.seccion1 .imagenes-con-botones {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.seccion1 .imagenes-con-botones .imagen-con-boton {
+    width: 30%;
+    background-color: #fff;
+    border-radius: 8px;
+}
+
+.seccion1 .imagenes-con-botones .imagen-con-boton img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.seccion1 .imagenes-con-botones .imagen-con-boton button:hover {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #b97a66; /* Deep orange */
+    transform: scale(1.05); /* Efecto de agrandar ligeramente */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* Estilos responsivos seccion1 */
+@media (max-width: 768px) {
+
+    .seccion1 .imagenes-con-botones {
+        flex-direction: column;
+    }
+
+    .seccion1 .imagenes-con-botones .imagen-con-boton {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+} 
+
+
+/* Sección 2 */
+.seccion2 {
+    padding: 50px 20px;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+.seccion2 .contenido {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap; /* Asegura que los elementos se acomoden si no caben en una sola fila */
+}
+
+.seccion2 .contenido .caja {
+    display: flex;
+    width: 80%;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 20px;
+    gap: 20px; /* Espacio entre las columnas */
+}
+
+.seccion2 .contenido .caja .imagen {
+    width: 50%;
+    padding-right: 20px;
+}
+
+.seccion2 .contenido .caja .imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.seccion2 .contenido .caja .testimonio {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.seccion2 .contenido .caja .testimonio p {
+    font-family: 'Comic Neue', cursive;
+    font-size: 26px;
+    font-style: italic;
+    color: #333;
+    line-height: 1.5;
+    padding: 0 10px;
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .seccion2 .contenido .caja {
+        flex-direction: column; /* Apilamos los elementos en una columna en pantallas pequeñas */
+        width: 90%; /* Asegura que el contenido no se estire demasiado */
+    }
+
+    .seccion2 .contenido .caja .imagen,
+    .seccion2 .contenido .caja .testimonio {
+        width: 100%; /* Ambos elementos ocupan el 100% del ancho en pantallas pequeñas */
+        padding-right: 0; /* Elimina el padding de la imagen en pantallas pequeñas */
+    }
+
+    .seccion2 .contenido .caja .testimonio p {
+        font-size: 18px; /* Ajusta el tamaño de la fuente para pantallas pequeñas */
+    }
+}
+
+
+/* Sección 3 */
+.seccion3 {
+    width: 100%; /* Hace que el contenedor ocupe el 100% del ancho */
+    max-width: 1200px; /* Limita el ancho máximo en pantallas muy grandes, ajusta según sea necesario */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px 0px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.seccion3 .texto-central h2 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 26px;
+    color: #333;
+}
+
+.seccion3 .texto-central p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Contenedor para los filtros y la galería */
+.seccion3 .contenedor {
+    display: flex;
+    flex-wrap: wrap;  /* Permite que las cajas se acomoden en una sola columna en pantallas pequeñas */
+    gap: 20px;
+}
+
+.texto-caja {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: none;
+    width: 100%; /* Ocupa todo el ancho del contenedor */
+    box-sizing: border-box; /* Incluye el padding en el ancho total */
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 768px) {
+    .contenedor {
+        width: 100%; /* Ocupa el 100% en pantallas pequeñas */
+        padding: 10px; /* Menos espacio en pantallas pequeñas */
+    }
+
+    .texto-caja {
+        width: 100%; /* Asegura que la caja ocupe todo el ancho disponible */
+    }
+}
+
+/* Estilo para las cajas (filtros y galería) en pantallas grandes */
+.seccion3 .caja {
+    width: 48%; /* Ancho de cada caja en pantallas grandes */
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: none; /* Eliminar sombreado */
+    box-sizing: border-box;
+}
+
+/* Estilos para pantallas pequeñas */
+@media (max-width: 768px) {
+    .seccion3 .contenedor {
+        flex-direction: column;  /* Apilamos filtros y galería en pantallas pequeñas */
+        align-items: center; /* Centrar las cajas */
+    }
+
+    .seccion3 .caja {
+        width: 100%;  /* Las cajas ocupan el 100% del ancho en pantallas pequeñas */
+        margin-bottom: 20px; /* Espaciado entre las cajas */
+    }
+
+    .seccion3 .texto-central h2 {
+        font-size: 22px; /* Ajustamos el tamaño del título */
+    }
+
+    .seccion3 .texto-central p {
+        font-size: 1em; /* Ajustamos el tamaño del texto */
+    }
+}
+
+.seccion3 .caja img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.seccion3 .boton-caja {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.seccion3 .boton-caja button {
+    padding: 10px 20px;
+    background-color: #FF5722; /* Deep orange */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+
+
+/* Estilos para el contenedor del formulario */
+.form-container {
+    width: 100%; /* 100% del ancho en pantallas pequeñas */
+    max-width: 800px; /* Limita el tamaño máximo del formulario para pantallas grandes */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 0 auto; /* Centra el formulario */
+    box-sizing: border-box; /* Asegura que el padding no afecte el ancho total */
+}
+
+/* Estilos para el formulario */
+form {
+    display: grid;
+    grid-template-columns: 1fr; /* Por defecto 1 columna */
+    gap: 15px;
+    padding: 25px;
+}
+
+/* Para pantallas más grandes (por ejemplo, mayor a 768px), se muestran dos columnas */
+@media (min-width: 768px) {
+    form {
+        grid-template-columns: 1fr 1fr; /* Dos columnas en pantallas grandes */
+    }
+}
+
+/* Para pantallas más grandes, ajustamos el tamaño del gap */
+@media (min-width: 1024px) {
+    form {
+        gap: 20px; /* Mayor espacio entre elementos en pantallas grandes */
+    }
+}
+
+/* Ajustes para pantallas móviles */
+@media (max-width: 767px) {
+    .form-container {
+        width: 100%; /* Asegura que el contenedor ocupe todo el ancho en móviles */
+        padding: 15px; /* Menos espacio en pantallas pequeñas */
+    }
+
+    form {
+        grid-template-columns: 1fr; /* Asegura una sola columna en móviles */
+    }
+
+    button {
+        width: 100%; /* El botón ocupa el 100% en pantallas pequeñas */
+    }
+}
+
+
+/* Estilo de las etiquetas */
+label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Estilos de los inputs, textarea y el botón */
+input, textarea, button {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Ajustes para el área de texto */
+textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+/* Estilos del botón */
+button {
+    background-color: #FF5722;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+/* En pantallas grandes, el botón ocupa ambas columnas */
+@media (min-width: 768px) {
+    button {
+        grid-column: span 2; /* El botón ocupa ambas columnas en pantallas grandes */
+    }
+}
+
+
+
+
+
+#galeria {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas en pantallas grandes */
+    gap: 16px; /* Espacio entre las fotos */
+    padding: 16px;
+  }
+  
+  .foto img {
+    width: 100%; /* Hacer que las imágenes ocupen el 100% de su contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    border-radius: 8px; /* Opcional: bordes redondeados para las imágenes */
+  }
+  
+  @media (max-width: 1024px) {
+    #galeria {
+      grid-template-columns: repeat(2, 1fr); /* 2 columnas en pantallas medianas */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    #galeria {
+      grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+  }
+
+  #filtros select {
+    text-align: center; /* Alinea el texto dentro del select */
+    width: 100%; /* Asegura que los select ocupen el % del ancho disponible, puedes ajustar esto si es necesario */
+  }
+
+  #btnFiltrar {
+    padding: 10px 20px;
+    background-color: #FF5722; /* Deep orange */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+    width: 40%; /* Hace que el botón ocupe el % del ancho disponible */
+    margin-top: 20px; /* Espacio superior para separar el botón de los filtros */
+}
+
+#galeria2 {
+    display: grid;
+    grid-template-columns: 1fr; /* 1 columna en todas las pantallas */
+    gap: 16px; /* Espacio entre las fotos */
+    padding: 16px;
+  }
+  
+  .foto img {
+    width: 100%; /* Hacer que las imágenes ocupen el 100% de su contenedor */
+    height: auto; /* Mantener la proporción de la imagen */
+    border-radius: 8px; /* Opcional: bordes redondeados para las imágenes */
+  }
+  
+  @media (max-width: 1024px) {
+    #galeria2 {
+      grid-template-columns: 1fr; /* Aseguramos que siga siendo 1 columna en pantallas medianas */
+    }
+  }
+  
+  @media (max-width: 600px) {
+    #galeria2 {
+      grid-template-columns: 1fr; /* 1 columna en pantallas pequeñas */
+    }
+  }
+  
+  #filtros select {
+    text-align: center; /* Alinea el texto dentro del select */
+    width: 50%; /* Asegura que los select ocupen el % del ancho disponible */
+  }
+
+
+
+  
+/* Sección 4 */
+.seccion4 {
+    padding: 50px 20px;
+    background-color: #ffffff;
+    text-align: center;
+}
+
+.seccion4 .texto-central h2 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 26px;
+    color: #333;
+}
+
+.seccion4 .texto-central p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+.seccion4 .contenedor {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+    flex-direction: column; /* Para que sea de una sola columna */
+}
+
+.seccion4 .caja {
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: none; /* Eliminar sombreado */
+}
+
+.seccion4 .caja img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+}
+
+.seccion4 .boton-caja {
+    text-align: center;
+    padding-top: 20px;
+}
+
+.seccion4 .boton-caja button {
+    padding: 10px 20px;
+    background-color: #FF5722; /* Deep orange */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+/* Añadimos los estilos específicos para el video (iframe) */
+.seccion4 .imagen-caja {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    position: relative;
+    width: 100%; /* El contenedor ocupa el 100% del ancho disponible */
+    max-width: 70%; /* El contenedor tendrá un máximo de 70% en pantallas grandes */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+    padding: 20px; /* Añadimos padding para reducir el espacio alrededor del video */
+    box-sizing: border-box; /* Asegura que el padding no afecte el tamaño total */
+}
+
+.seccion4 iframe {
+    width: 100%; /* El iframe se adapta al 100% del contenedor */
+    height: 500px; /* Altura predeterminada para pantallas grandes */
+    aspect-ratio: 16/9; /* Mantener la relación de aspecto 16:9 */
+    border-radius: 8px; /* Bordes redondeados */
+}
+
+.seccion4 figcaption {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #555;
+}
+
+/* Media query para pantallas medianas */
+@media (max-width: 1024px) {
+    .seccion4 .imagen-caja {
+        max-width: 90%; /* Aumenta el ancho del contenedor en pantallas medianas */
+        padding: 15px; /* Reduce el padding en pantallas medianas */
+    }
+    
+    .seccion4 iframe {
+        height: 400px; /* Ajustar la altura del iframe para pantallas más pequeñas */
+    }
+}
+
+/* Media query para pantallas pequeñas */
+@media (max-width: 600px) {
+    .seccion4 .imagen-caja {
+        max-width: 100%; /* El contenedor ocupa el 100% del ancho disponible en pantallas pequeñas */
+        padding: 10px; /* Reduce aún más el padding en pantallas pequeñas */
+    }
+    
+    .seccion4 iframe {
+        height: 300px; /* Ajustar la altura aún más en pantallas pequeñas */
+    }
+}
+
+
+
+
+
+/* Estilo para el contenedor local */
+.contenedor-local {
+    display: flex; /* Activamos Flexbox */
+    justify-content: space-between; /* Espacio entre las columnas */
+    gap: 20px; /* Espacio entre columnas */
+    width: 90%; /* Ancho del contenedor */
+    margin: 0 auto; /* Centra el contenedor horizontalmente */
+}
+
+/* Estilo para cada columna */
+.contenedor-local .columna-izquierda-local,
+.contenedor-local .columna-derecha-local {
+    box-sizing: border-box; /* Asegura que el padding no afecte al ancho */
+    padding: 10px; /* Añadir algo de espacio dentro de las columnas */
+}
+
+/* Columna de filtros (izquierda) */
+.contenedor-local .columna-izquierda-local {
+    width: 48%; /* Ancho de la columna de filtros */
+    margin-bottom: 20px; /* Espaciado entre las columnas */
+    background-color: #f18445; /* Naranja claro */
+    padding: 20px; /* Añadimos un poco de padding para que el contenido no quede pegado a los bordes */
+}
+
+/* Columna de galería (derecha) */
+.contenedor-local .columna-derecha-local {
+    width: 80%; /* Ancho de la columna de galería */
+}
+
+/* Para pantallas medianas */
+@media (max-width: 1024px) {
+    .contenedor-local {
+        width: 70%; /* 70% en pantallas medianas */
+    }
+    .contenedor-local .columna-izquierda-local {
+        width: 48%; /* En pantallas pequeñas, las columnas ocupan el 48% */
+        margin-bottom: 20px; /* Espaciado entre las columnas */
+        background-color: #f18445; /* Naranja claro */
+        padding: 20px; /* Añadimos un poco de padding para que el contenido no quede pegado a los bordes */
+    }
+    .contenedor-local .columna-derecha-local {
+        width: 48%; /* En pantallas pequeñas, las columnas ocupan el 48% */     
+    }
+}
+
+/* Para pantallas pequeñas */
+@media (max-width: 600px) {
+    .contenedor-local {
+        width: 90%; /* 90% en pantallas pequeñas */
+        flex-direction: column; /* Apilar columnas en pantallas pequeñas */
+    }
+    .contenedor-local .columna-izquierda-local {
+        width: 100%; /* En pantallas pequeñas, las columnas ocupan el 100% */
+        margin-bottom: 20px; /* Espaciado entre las columnas */
+        background-color: #f18445; /* Naranja claro */
+        padding: 20px; /* Añadimos un poco de padding para que el contenido no quede pegado a los bordes */
+    }
+
+    .contenedor-local .columna-derecha-local {
+        width: 100%; /* En pantallas pequeñas, las columnas ocupan el 100% */     
+    }
+}
+
+
+
+
+.imagen-full {
+    position: relative; /* Necesario para aplicar un filtro sobre la imagen */
+    width: 100%;
+    overflow: hidden; /* Asegura que la imagen no se desborde */
+}
+
+.imagen-full img {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    height: auto; /* Mantiene la proporción de la imagen */
+    display: block; /* Elimina el espacio debajo de la imagen */
+    filter: brightness(70%); /* Filtro oscuro para hacerla un poco más oscura */
+    transition: filter 0.3s ease; /* Efecto de transición suave */
+}
+
+@media (max-width: 1024px) {
+    .imagen-full img {
+        height: 60vh; /* Ajuste de altura para pantallas medianas */
+    }
+}
+
+@media (max-width: 600px) {
+    .imagen-full img {
+        height: 50vh; /* Ajuste de altura para pantallas pequeñas */
+    }
+}
+
+/* Estilo para la sección de FAQs */
+.faqs {
+    padding: 20px;
+    background-color: #f9f9f9;
+    margin: 30px 0;
+}
+
+.faqs h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+/* Estilo para cada pregunta */
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    background-color: #FF5722; /* Deep orange */
+    color: white;
+    padding: 10px;
+    border: none;
+    width: 100%;
+    text-align: left;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+/* Estilo para las respuestas (inicialmente ocultas) */
+.faq-answer {
+    display: none;
+    padding: 10px;
+    background-color: #e0e0e0;
+    margin-top: 5px;
+    border-radius: 5px;
+}
+
+/* Cambiar el fondo de la pregunta al pasar el mouse */
+.faq-question:hover {
+    background-color: #e64a19;
+}
+
+/* Estilos generales para la  full */
+.imagen-full {
+    width: 100%; /* Hace que el contenedor ocupe el 100% del ancho de su contenedor padre */
+    overflow: hidden; /* Oculta cualquier parte de la imagen que se desborde del contenedor */
+}
+
+.imagen-full img {
+    width: 100%; /* Hace que la imagen ocupe el 100% del ancho del contenedor */
+    height: auto; /* Mantiene la proporción original de la imagen */
+    display: block; /* Elimina el espacio debajo de la imagen */
+}
+
+
+/* Estilos del Footer */
+footer {
+    background: linear-gradient(to right, #FF5722, #E64A19);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.footer-contenido {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.footer-contenido .columna {
+    width: 48%;
+    text-align: center;
+}
+
+.footer-contenido .columna h3 {
+    font-family: 'Comic Neue', cursive;
+    font-size: 26px;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.footer-contenido .columna p {
+    font-size: 16px;
+    color: #ccc;
+    line-height: 1.5;
+}
+
+                 
+
+              

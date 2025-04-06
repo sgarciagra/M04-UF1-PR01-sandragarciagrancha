@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perros encontrados</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body>
+
+<!-- Barra superior con logo a la izquierda y submenú a la derecha -->
+<div class="topbar">
+    <img src="Logo_buscandote.org.png" alt="Logo" class="logo-img">
+  
+    <!-- Submenú de navegación -->
+    <nav class="submenu">
+        <ul class="submenu-list">
+            <li><a href="index.html">Inicio</a></li>
+        </ul>
+    </nav>
+  
+    <!-- Icono de hamburguesa para el submenu -->
+    <div class="subhamburger" id="subhamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+  </div>
+  
+  <!-- Enlace a tu nuevo subhamburguesa.js -->
+  <script src="subhamburguesa.js" defer></script>
+
+<!-- HEADER2 -->
+<header class="header2">
+    <div>
+        <h1>Listado de encontrados</h1>
+    </div>
+</header>
+
+<!-- CUERPO -->
+
+<!-- Sección vacía-->
+<section class="seccion0">  
+    <div class="contenedor">
+    </div>
+</section>
+
+<!-- Sección 2 del cuerpo (equivale a Sección 3 de index.html)-->
+<section class="seccion3">  
+    <div class="texto-central">
+        <h2>ESTOS SON LOS ÚLTIMOS PERROS ENCONTRADOS</h2>
+        <p>Consulta el listado</p>
+    </div>
+    
+<!-- Caja izquierda -->
+    <!-- Filtros -->
+    <p>Filtrar por:</p>
+    <div id="filtros">
+        <p>
+            <select id="filtroSexo">
+                <option value="">Sexo</option>
+                <option value="macho">Macho</option>
+                <option value="hembra">Hembra</option>
+            </select>
+        </p>
+
+        <p>
+            <select id="filtroProvincia">
+                <option value="">Provincia</option>
+                <option value="barcelona">Barcelona</option>
+                <option value="tarragona">Tarragona</option>
+                <option value="lleida">Lleida</option>
+                <option value="girona">Girona</option>
+            </select>
+        </p>
+
+        <p>
+            <select id="filtroChip">
+                <option value="">Chip</option>
+                <option value="con-chip">Con chip</option>
+                <option value="sin-chip">Sin chip</option>
+            </select>
+        </p>
+
+        <p>
+            <select id="filtroEstado">
+                <option value="">Estado</option>
+                <option value="vivo">Vivo</option>
+                <option value="muerto">Muerto</option>
+            </select>
+        </p>
+
+        <p>
+            <select id="filtroTiempo">
+                <option value="">Tiempo</option>
+                <option value="3-meses">Últimos 3 meses</option>
+                <option value="1-ano">Último año</option>
+            </select>
+        </p>
+
+        <!-- Botón para aplicar filtro -->
+        <button id="btnFiltrar">Filtrar</button>
+        <p></p>
+    </div>
+
+
+
+        <!-- Caja derecha -->
+        <div id="galeria">
+            <div class="foto" data-sexo="macho" data-provincia="barcelona" data-chip="con-chip" data-estado="vivo" data-tiempo="3-meses">
+                <img src="Galeria1.jpg" alt="Perro 1">
+            </div>        
+            <div class="foto" data-sexo="hembra" data-provincia="girona" data-chip="sin-chip" data-estado="vivo" data-tiempo="1-ano">
+                <img src="Galeria2.jpg" alt="Perro 2">
+            </div>
+            <div class="foto" data-sexo="macho" data-provincia="barcelona" data-chip="con-chip" data-estado="vivo" data-tiempo="3-meses">
+                <img src="Galeria3.jpg" alt="Perro 1">
+            </div>        
+            <div class="foto" data-sexo="hembra" data-provincia="barcelona" data-chip="sin-chip" data-estado="vivo" data-tiempo="1-ano">
+                <img src="Galeria4.jpg" alt="Perro 2">
+            </div>
+            <div class="foto" data-sexo="macho" data-provincia="barcelona" data-chip="con-chip" data-estado="vivo" data-tiempo="3-meses">
+                <img src="Galeria5.jpg" alt="Perro 1">
+            </div>        
+            <div class="foto" data-sexo="macho" data-provincia="lleida" data-chip="sin-chip" data-estado="vivo" data-tiempo="1-ano">
+                <img src="Galeria6.jpg" alt="Perro 2">
+            </div>
+        </div>
+</section>
+
+<!-- Script  -->
+<script>
+
+// Primero capturamos todos los filtros, las fotos y el botón de filtrar
+const filtroSexo = document.getElementById('filtroSexo');
+const filtroProvincia = document.getElementById('filtroProvincia');
+const filtroChip = document.getElementById('filtroChip');
+const filtroEstado = document.getElementById('filtroEstado');
+const filtroTiempo = document.getElementById('filtroTiempo');
+const fotos = document.querySelectorAll('#galeria .foto');
+const btnFiltrar = document.getElementById('btnFiltrar');
+
+// Función para actualizar las fotos visibles según los filtros
+const actualizarFiltro = () => {
+  const sexo = filtroSexo.value;
+  const provincia = filtroProvincia.value;
+  const chip = filtroChip.value;
+  const estado = filtroEstado.value;
+  const tiempo = filtroTiempo.value;
+
+  // Depuración: mostrar los valores de los filtros
+  console.log("Filtro Sexo:", sexo);
+  console.log("Filtro Provincia:", provincia);
+  console.log("Filtro Chip:", chip);
+  console.log("Filtro Estado:", estado);
+  console.log("Filtro Tiempo:", tiempo);
+
+  fotos.forEach(foto => {
+    const coincideSexo = !sexo || foto.dataset.sexo === sexo;
+    const coincideProvincia = !provincia || foto.dataset.provincia === provincia;
+    const coincideChip = !chip || foto.dataset.chip === chip;
+    const coincideEstado = !estado || foto.dataset.estado === estado;
+    const coincideTiempo = !tiempo || foto.dataset.tiempo === tiempo;
+
+    // Verificamos si **todos** los filtros coinciden
+    if (coincideSexo && coincideProvincia && coincideChip && coincideEstado && coincideTiempo) {
+      foto.style.display = 'block';  // Mostrar la imagen si coincide con todos los filtros
+    } else {
+      foto.style.display = 'none';   // Ocultar la imagen si no coincide con todos los filtros
+    }
+  });
+};
+
+// Añadimos el evento click al botón para aplicar los filtros
+btnFiltrar.addEventListener('click', actualizarFiltro);
+
+// También podemos agregar la funcionalidad para que actualice los resultados de inmediato si cambiamos algún filtro
+filtroSexo.addEventListener('change', actualizarFiltro);
+filtroProvincia.addEventListener('change', actualizarFiltro);
+filtroChip.addEventListener('change', actualizarFiltro);
+filtroEstado.addEventListener('change', actualizarFiltro);
+filtroTiempo.addEventListener('change', actualizarFiltro);
+
+
+</script>
+    
+
+<!-- Sección vacía-->
+<section class="seccion0">  
+    <div class="contenedor">
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="footer-contenido">
+      <div class="columna">
+        <h3>Copyright</h3>
+        <p>2025@ Derechos reservados para buscandote.org.</p>
+      </div>
+      <div class="columna">
+        <h3>Contacto</h3>
+        <p><i class="fas fa-envelope"></i> info@buscandote.org</p>
+        <p><i class="fas fa-phone"></i> 650023229</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
